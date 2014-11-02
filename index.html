@@ -1,0 +1,114 @@
+<!doctype html>
+<html>
+<head>
+    <title>Example Domain</title>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap-theme.min.css">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+
+    <!--http://code.jquery.com/jquery-latest.min.js-->
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/jquery-ui.min.js"></script>
+
+    <style type="text/css">
+    /********************************************
+    Tag Resets
+    ********************************************/
+    body, div, h1, h2, h3, h4, h5, h6, p, blockquote, pre, dl, dt, dd, ol, ul, li, fieldset, form, label, legend,
+    th, td, article, aside, figure, footer, header, hgroup, menu, nav, section {
+        margin: 0;
+        padding: 0;
+        border: 0;
+    }
+
+
+
+    /********************************************
+    Form CSS
+    ********************************************/
+    #input {
+        margin-left: 100px;
+        border: 1px solid black;
+        height: 500px;
+        width: 500px;
+        padding: 10px;
+        background-color: HSL(0, 0%, 96%);
+        border-radius: 5px;
+    }
+
+    #Male, #Female{
+        margin:0;
+        padding:0;
+        border:none;
+        cursor:pointer;
+        height:200px;
+        width:200px;
+        color:white;
+        font-size:5em;
+    }
+
+    #Male {
+        background-color: #5E81FF;
+    }
+
+    #Female {
+        background-color: #FFAEF0;
+    }
+
+   /* #Male:focus, #Female:focus{
+        background-color: yellow;
+        outline-style:none;
+        color:black;
+    }
+*/
+    /*button > img {
+        height:300px;
+        width:200px;
+    }*/
+
+    </style>
+</head>
+
+<body>
+<div>
+    <h1>This is a header!</h1>
+
+    <form id="input">
+        <label for="age-select">Select An Age Category</label>
+        <select name="age" id="age-select">
+            <option disabled selected value="default">--please select a category--</option>
+            <option value="baby">Baby (0-6 months old)</option>
+            <option value="infant">Infant (6-12 months old)</option>
+            <option value="toddler">Toddler (1-3 years old)</option>
+            <option value="child">Child (4-8 years old)</option>
+            <option value="teen">Teen (9-18 years old)</option>
+            <option value="adult">Adult (19+ years old)</option>
+            <option value="pregnant-teen">Pregnant Teen (14-18 years old)</option>
+            <option value="pregnant-adult">Pregnant Adult (19+ years old)</option>
+        </select>
+
+        <br />
+
+        Please Select A Gender
+        <br />
+        <button type="button" id="Male">&#9794;<!-- <img src="images/Male.png" /> --></button>
+        <button type="button" id="Female">&#9792;<!-- <img src="images/Female.png" /> --></button>
+    </form>
+
+    <script>
+        $()
+    </script>
+</div>
+</body>
+</html>
+
