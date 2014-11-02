@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cal Origami</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Cal Origami logo text font -->
+    <link href='http://fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <![endif]-->
+    <style>
+    #logo-div {
+      /*border: 1px solid black;*/
+    }
+
+    #logo {
+      height:50px;
+      padding:5px 20px 5px 10px;
+    }
+
+    #brand-name {
+      font-size:2em;
+      font-family: 'Poiret One', cursive;
+    }
+
+    .top-container {
+      background-image:url("img/bokeh.jpg");
+      background-size:cover;
+      /*color: black;*/
+      width:100%;
+    }
+
+    .opacity {
+      opacity: 1.0;
+    }
+
+    #top-row {
+      margin-top:100px;
+      text-align:center;
+    }
+
+    #top-row h1 {
+      font-size:400%;
+
+    }
+
+    .bold {
+      font-weight:bold;
+    }
+
+    .margin-top {
+      margin-top:30px;
+    }
+
+    .margin-bottom {
+      margin-bottom:30px;
+    }
+
+    .center {
+      text-align:center;
+    }
+
+    .title {
+      margin-top:100px;
+      font-size:300%;
+    }
+
+    .footer {
+      background-color: #B0D1FB;
+      padding-top:70px;
+      width:100%;
+    }
+
+    .appstore-image {
+      width:250px;
+    }
+
+    .display-none {
+      display:none;
+    }
+
+    </style>
+  </head>
+  <body data-spy="scroll" data-target=".navbar-collapse">
+
+    <!-- ++++ TOPBAR ++++ -->
+    <div class="navbar navbar-default navbar-fixed-top opacity">
+
+      <div class="container">
+
+        <div class="navbar-header">
+          <div id="logo-div">
+            <img id="logo" src="img/logo1.png" class="navbar-brand"/>
+            <a id="brand-name" href="index.html" class="navbar-brand">Cal Origami</a>
+          </div>
+
+          <!-- Menu button -->
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+
+            <!-- For screen readers only -->
+            <span class="sr-only">Toggle navigation</span>
+
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#events">Events</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+    <!-- ++++ TOPBAR ++++ -->
+
+    <!-- Home Page -->
+    <div id="home" class="container content-container top-container">
+      <div class="row">
+        <div class="col-md-12" id="top-row">
+          <h1 class="margin-top">Welcome to Cal Origami!</h1>
+        </div>
+        <div class="col-sm-6 col-sm-offset-3" id="top-row">
+
+          <p class="lead">Come fold with us every other Monday!</p>
+
+          <p>Next meeting is <em>Monday, September 22nd</em></p>
+
+          <p class="bold margin-top">Sign up for our mailing list!</p>
+
+          <form class="margin-top">
+            <div class="input-group display-none">
+              <span class="input-group-addon">@</span>
+              <input type="email" class="form-control" placeholder="your email"/>
+            </div>
+
+            <input type="button" class="btn btn-success btn-lg margin-top" value="Sign Up Here!" onClick="location.href='https://calmail.berkeley.edu/manage/list/listinfo/calorigami@lists.berkeley.edu'"/>
+
+          </form>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- About Div -->
+    <div id="about" class="container content-container">
+      <div class="row">
+        <h1 class="title center">Who are we?</h1>
+
+        <p class="lead center">Meet the officers!</p>
+
+        <div class="col-md-4 margin-top">
+          <h2><span class="glyphicon glyphicon-music"></span> Header</h2>
+
+          <p>A brief description of one of the best features of your app.  Maybe a bit more text.  A brief description of one of the best features of your app.  Maybe a bit more text.</p>
+
+          <button class="btn btn-success">Sign Up!</button>
+        </div>
+
+        <div class="col-md-4 margin-top">
+          <h2><span class="glyphicon glyphicon-off"></span> Header</h2>
+
+          <p>A brief description of one of the best features of your app.  Maybe a bit more text.  A brief description of one of the best features of your app.  Maybe a bit more text.</p>
+
+          <button class="btn btn-success">Sign Up!</button>
+        </div>
+
+        <div class="col-md-4 margin-top margin-bottom">
+          <h2><span class="glyphicon glyphicon-pencil"></span> Header</h2>
+
+          <p>A brief description of one of the best features of your app.  Maybe a bit more text.  A brief description of one of the best features of your app.  Maybe a bit more text.</p>
+
+          <button class="btn btn-success">Sign Up!</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Events Div -->
+    <div id="events" class="container content-container footer">
+      <div class="row footer">
+        <h1 class="center title">Download The App!</h1>
+
+        <p class="lead center">Really, why should you download this app?</p>
+
+        <p class="center"><img src="appstore.jpg" class="appstore-image">
+      </div>
+
+    </div>
+
+    <script>
+    $(".content-container").css("min-height", $(window).height());
+    </script>
+
+  </body>
+</html>
