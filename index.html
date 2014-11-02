@@ -82,6 +82,14 @@
         width:200px;
     }*/
 
+    #send {
+        height:200px;
+        width:500px;
+        font-size:2em;
+        background-color:green;
+        color:white;
+    }
+
     </style>
 </head>
 
@@ -113,22 +121,58 @@
         </div>
     </form>
 
+    <div id="send"></div>
+    <div id="error"></div>
+
     <script>
-        gender = "None"
-        maleColor = "rgba(94, 129, 255, 1)"
-        femaleColor = "rgba(255, 174, 240, 1)"
-        $(".gender").click(function () {
-            $("#Male").css("background-color", maleColor);
-            $("#Female").css("background-color", femaleColor);
-            $(this).animate({
-                backgroundColor: "#3AFF09",
-            }, 0);
-            gender = $(this).attr("id");
-            $("#gender").children().removeClass("selected");
-            $(this).addClass("selected");
-        });
+    gender = "None"
+    maleColor = "rgba(94, 129, 255, 1)"
+    femaleColor = "rgba(255, 174, 240, 1)"
+    $(".gender").click(function () {
+        $("#Male").css("background-color", maleColor);
+        $("#Female").css("background-color", femaleColor);
+        $(this).animate({
+            backgroundColor: "#3AFF09",
+        }, 0);
+        gender = $(this).attr("id");
+        $("#gender").children().removeClass("selected");
+        $(this).addClass("selected");
+    });
 
+    var RDA_table = {
+        "default":undefined,
+        "baby":200,
+        "infant":260,
+        "toddler":700,
+        "child":1000,
+        "teen":1300,
+        "adult":1000,
+        "pregnant-teen":1300,
+        "pregnant-adult":1000
+    };
 
+    $("#send").click(function() {
+        var age_category = $("#age-select").find(":selected").attr("value");
+        var RDA = RDA_table[age_category];
+        sendData(RDA, gender);
+    });
+
+    function sendData(RDA, gender)
+    {
+      // Initialize packed or we get the word 'undefined'
+      if (RDA === undefined) {
+        alert("Please select an age category");
+        return;
+      }
+
+      if (gender === "None") {
+        alert("Please select a gender")
+        return;
+      }
+      var packed = "";
+      packed += RDA + "," + gender;
+      window.location = "pick.html?" + packed;
+    }
     </script>
 </div>
 </body>
