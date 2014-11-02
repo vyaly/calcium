@@ -8,7 +8,7 @@
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
 
-    <title>Grid Template for Bootstrap</title>
+    <title>Calcium Results</title>
 
     <!-- Bootstrap core CSS -->
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -30,12 +30,74 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
     <style type="text/css">
-    #result {
-      height:300px;
-      width:500px;
+    .data {
+   /*   height:300px;
+      width:500px;*/
+      text-align: center;
       font-size:2em;
-      background-color:green;
-      color:white;
+    /*  background-color:green;
+      color:white;*/
+    }
+    h1{
+      text-align: center;
+    }
+    #thumbs-down{
+      display:none;
+    }
+    #thumbs-up{
+      display:none;
+    }
+    #righty{
+      border: 2px solid black;
+      float:left;
+      margin-top: 200px;
+      padding-left:45px;
+      font-size: 2em;
+      width:50%;
+    }
+    #right-under{
+
+    }
+    #adjust{
+      padding-left: 285px; 
+      padding-top: 20px;
+      position:absolute;
+      /*margin-left: 100px;*/
+      top:20px;
+   
+    }
+    #more-info{
+      position:absolute;
+      padding-top: 90px; 
+    }
+/*    #lefty{
+      float:left;
+      text-align: left;
+      width:40%;
+    }*/
+    #q{
+       padding-left: 250px;
+      position:absolute;
+    }
+ 
+    .container2 {
+      margin-top: 20px;
+      position: relative;   
+    }
+   .overlay {
+      position: absolute;   
+      left:0;
+      top: 0;
+      z-index: 999;
+    }
+    #wrapper{
+      padding left: 200px;
+      margin-top:250px;
+      position:relative;
+    }
+
+    .clearfix {
+      clear:both;
     }
 
     </style>
@@ -43,17 +105,37 @@
   </head>
 
   <body>
+          <h1>Results</h1>
+    <div id = "data">
     <div class="container">
 
-      <div id="result"></div>
+      <div class = "data" id="result"></div>
+      <div class = "data" id="total_calcium"></div>
+      <div class = "data" id="recommended"></div>
+      <div class = "data" id="difference"></div>
 
 
       <!-- <div class="drop-zone">
         </div> -->
-
-
-
     </div> <!-- /container -->
+
+    <div class="container2">
+      <img src="images/thumbs-down.png"  id ="thumbs-down" width="250" height="250" />
+      <img src="images/thumbs-up.png" id ="thumbs-up" class="overlay" width="250" height="250" />
+    </div>
+  </div>
+  <div id = "righty">     
+  </div>
+  <div class="clearfix"></div>
+
+  <div id="wrapper">
+   <div id = "q"><h4>Inputted your servings wrong?</h4> </div>
+  <div id = "adjust">
+    <button type="button" class="btn btn-default btn-lg btn-block">Adjust Servings</button>
+  </div>
+  <div id = "more-info"> <A HREF= "http://www.americanbonehealth.org"> More info at American Bone Health </A>
+  </div>
+</div>
 
 
     <script>
@@ -65,12 +147,28 @@
     var servings = data[0];
     var total_calcium = servings * 300;
     var difference = data[1] - total_calcium;
-    var result_html = "" +
-        "servings: " + servings + "\n" +
-        "total calcium: " + total_calcium + "\n" +
-        "recommended: " + data[1] + "\n" +
-        "difference: " + difference;
+    var result_html = "Servings: " + servings ;
+    var total_calcium_html = "Total Calcium: " + total_calcium ;
+    var recommemnded_html = "Recommended: " + data[1] + "\n";
+    var difference_html = "Difference: " + difference;
     $("#result").html(result_html);
+    $("#total_calcium").html(total_calcium_html);
+    $("#result").html(result_html);
+    $("#recommended").html(recommemnded_html);
+    $("#difference").html(difference_html);
+    var r ; 
+    if(difference > 0){
+      r = "You could use more calcium. Take a calcium supplement or try eating more"; 
+      $("#righty").appendTo(r);
+      $("#thumbs-down").show();
+    }
+    else{
+      r = "Great job!"
+      $("#righty").html(r);
+      $("#thumbs-up").show();
+
+    }
+
     </script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
