@@ -20,6 +20,8 @@
     <script type="text/javascript" src="js/jquery.min.js"></script>
     <script type="text/javascript" src="js/jquery-ui.min.js"></script>
 
+    <script type="text/javascript" src="js/colors.js"></script>
+
     <style type="text/css">
     /********************************************
     Tag Resets
@@ -36,17 +38,21 @@
     /********************************************
     Form CSS
     ********************************************/
-    #input {
-        margin-left: 100px;
-        border: 1px solid black;
-        height: 500px;
-        width: 500px;
+    body {
+        background-color:HSL(0, 0%, 96%);;
+    }
+
+    form {
+        /*margin-left: 100px;*/
+        /*border: 1px solid black;*/
+        height: 100%;
+        width: 100%;
         padding: 10px;
         background-color: HSL(0, 0%, 96%);
         border-radius: 5px;
     }
 
-    #Male, #Female{
+    .gender {
         margin:0;
         padding:0;
         border:none;
@@ -58,19 +64,19 @@
     }
 
     #Male {
-        background-color: #5E81FF;
+        background-color: rgba(94, 129, 255, 1);
     }
 
     #Female {
-        background-color: #FFAEF0;
+        background-color: rgba(255, 174, 240, 1);
     }
 
-   /* #Male:focus, #Female:focus{
-        background-color: yellow;
+    #Male:focus, #Female:focus{
+        /*background-color: yellow;*/
         outline-style:none;
-        color:black;
+        /*color:black;*/
     }
-*/
+
     /*button > img {
         height:300px;
         width:200px;
@@ -81,9 +87,9 @@
 
 <body>
 <div>
-    <h1>This is a header!</h1>
+    <!-- <h1>This is a header!</h1> -->
 
-    <form id="input">
+    <form id="form">
         <label for="age-select">Select An Age Category</label>
         <select name="age" id="age-select">
             <option disabled selected value="default">--please select a category--</option>
@@ -101,12 +107,28 @@
 
         Please Select A Gender
         <br />
-        <button type="button" id="Male">&#9794;<!-- <img src="images/Male.png" /> --></button>
-        <button type="button" id="Female">&#9792;<!-- <img src="images/Female.png" /> --></button>
+        <div id="gender">
+            <button class="gender" type="button" id="Male">&#9794;</button>
+            <button class="gender" type="button" id="Female">&#9792;</button>
+        </div>
     </form>
 
     <script>
-        $()
+        gender = "None"
+        maleColor = "rgba(94, 129, 255, 1)"
+        femaleColor = "rgba(255, 174, 240, 1)"
+        $(".gender").click(function () {
+            $("#Male").css("background-color", maleColor);
+            $("#Female").css("background-color", femaleColor);
+            $(this).animate({
+                backgroundColor: "#3AFF09",
+            }, 0);
+            gender = $(this).attr("id");
+            $("#gender").children().removeClass("selected");
+            $(this).addClass("selected");
+        });
+
+
     </script>
 </div>
 </body>
