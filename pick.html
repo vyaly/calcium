@@ -37,6 +37,16 @@
         /*left:-50px;*/
       }
 
+      @media screen and (max-width: 340px) {
+        h1 {
+          font-size:1.7em;
+        }
+
+        .page-header p {
+          font-size:1em;
+        }
+      }
+
       body {
         display:none;
       }
@@ -51,12 +61,31 @@
         display:none;
       }
 
+      @media screen and (max-width: 340px) {
+        .food img {
+          height:75px;
+          width:75px;
+          border-radius:38px;
+          padding:5px;
+          background-color:RGBA(219, 219, 219, 1);
+          z-index:-1;
+          display:none;
+        }
+      }
+
+
       .row div {
         display:inline;
       }
 
       .row {
         margin:10px;
+      }
+
+      @media screen and (max-width: 340px) {
+        .row {
+          margin:10px 0;
+        }
       }
 
       .drop-zone {
@@ -69,6 +98,12 @@
         position:relative;
         margin:10px;
         top:-50px;
+      }
+
+      @media screen and (max-width: 340px) {
+        .food {
+          margin-left:10px;
+        }
       }
 
       .food div {
@@ -88,6 +123,17 @@
         display:none;
       }
 
+      @media screen and (max-width: 340px) {
+        .food div {
+          height:20px;
+          width:20px;
+          font-size:.8em;
+          border-radius:10px;
+          padding-top:3px;
+          padding-left:7px;
+        }
+      }
+
 
       #main-content {
         margin:0px auto;
@@ -98,24 +144,31 @@
       }
 
       #buttons {
-        float:left;
+        /*float:left;*/
         position:relative;
         left:50px;
       }
 
       #reset {
-        height:75px;
+        height:100px;
         width:200px;
         background-color:red;
         font-size:3em;
         color:white;
-        border-radius:10px;
+        border-radius:5px;
         padding-top:20px;
         padding-left:25px;
+        border-bottom:10px solid #870000;
+      }
+
+      #reset:active {
+        position:relative;
+        top:10px;
+        border-bottom:10px solid white;
       }
 
       #send {
-        margin-top:50px;
+        margin-top:40px;
         height:100px;
         width:200px;
         background-color:green;
@@ -123,12 +176,71 @@
         color:white;
         border-radius:5px;
         padding-top:20px;
-        padding-left:45px;
+        padding-left:48px;
+        border-bottom:10px solid #0D6B00;
+      }
+
+      #send:active {
+        position:relative;
+        top:10px;
+        border-bottom:10px solid white;
+      }
+
+      @media screen and (max-width: 340px) {
+        #buttons {
+          left:5px;
+        }
+
+        #reset {
+          height:70px;
+          width:240px;
+          padding-left:10px;
+          padding-top:30px;
+          font-size:1.5em;
+          margin-top:20px;
+        }
+
+        #send {
+          height:100px;
+          width:240px;
+          padding-left:10px;
+          padding-top:30px;
+          font-size:1.7em;
+          margin-top:2px;
+          margin-bottom:20px;
+        }
       }
 
       /*#main-content #buttons {
         /**/
-      }*/
+
+      #wrapper {
+        width:700px;
+        margin:0 auto;
+      }
+
+      #back {
+        height:40px;
+        width:100px;
+        color:white;
+        text-align:center;
+        background-color:#6E6E6E;
+        border-bottom:5px solid #424242;
+        margin-top:15px;
+        padding:2px;
+        padding-top:5px;
+        border-radius:4px;
+        font-size:1.2em;
+    }
+
+      #back:active{
+          border:none;
+          height:25px;
+          margin-top:20px;
+      }
+
+
+
     </style>
     <script type="text/javascript">
 
@@ -137,7 +249,7 @@
       $("body").fadeIn(500);
       $('.food img').show();
       $('.food div').show();
-      $('.food').animate({ top: 0, display: 'inline' }, 600, 'easeOutBounce');
+      $('.food').delay(100).animate({ top: 0, display: 'inline' }, 600, 'easeOutBounce');
 
       // $("h1").animate({
       //   left: "50px"
@@ -149,6 +261,8 @@
   </head>
 
   <body>
+
+  <div id="wrapper">
     <div class="container">
       <div class="page-header">
         <h1>Now select your foods.</h1>
@@ -157,7 +271,7 @@
     </div>
 
     <div class="main-content container">
-      <div id="foods">
+      <div id="foods" class="col-small-8">
         <div class="row">
           <div class="food">
             <img id="yogurt" src="images/yogurt.png" alt="images/yogurt" />
@@ -183,7 +297,7 @@
             <div>0</div>
           </div>
           <div class="food">
-            <img id="brocolli" src="images/Broccoli.png" alt="broccoli" />
+            <img id="broccoli" src="images/Broccoli.png" alt="broccoli" />
             <div>0</div>
           </div>
         </div>
@@ -226,16 +340,21 @@
         </div>
       </div>
 
+      <div class="clearfix visible-xs-block"></div>
+
       <!-- <div id="submit">0</div> -->
-      <div id="buttons">
+      <div id="buttons" class="col-sm-4">
         <div id="reset">Refresh</div>
 
         <div id="send">Send</div>
+
+        <div id="back">Go Back</div>
       </div>
 
-</div> <!-- Container -->
+    </div> <!-- Container -->
       <!-- <div class="drop-zone">
         </div> -->
+  </div> <!--wrapper-->
 
     <script>
     // receive data from index.html
@@ -250,10 +369,10 @@
     var gender = data[1];
 
     //###############################
-
     $(".food").click(function() {
       num = parseInt($(this).find("div").html()) + 1;
       $(this).find("div").html(num);
+      $(this).find("img").css("background-color", "#830F00");
     });
 
     function totalServings() {
@@ -268,9 +387,10 @@
     $("#reset").click(function() {
       // $(".food").hide();
       $(".food").fadeOut(50);
-      items = $(".food div");
+      items = $(".food");
       for (var i=0; i < items.length; i++) {
-        $(items[i]).html(0);
+        $(items[i]).find("div").html(0);
+        $(items[i]).find("img").css("background-color", "#DBDBDB");
       }
       // $("#submit").html(0);
       $(".food").fadeIn(200);
@@ -278,6 +398,12 @@
 
     $("#send").click(function() {
       sendData();
+    });
+
+    $("#back").click(function() {
+        $("#wrapper").fadeOut(500);
+        setTimeout(function(){window.location="input.html";});
+        //window.location = "home1.html";
     });
 
     function sendData()
