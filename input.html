@@ -1,0 +1,390 @@
+<!doctype html>
+<html>
+<head>
+    <title>Getting Started</title>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap-theme.min.css">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+
+    <!--http://code.jquery.com/jquery-latest.min.js-->
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/jquery-ui.min.js"></script>
+
+    <script type="text/javascript" src="js/colors.js"></script>
+
+    <script src="js/jquery.easing.min.js"></script>
+
+    <style type="text/css">
+    /********************************************
+    Tag Resets
+    ********************************************/
+    body, div, h1, h2, h3, h4, h5, h6, p, blockquote, pre, dl, dt, dd, ol, ul, li, fieldset, form, label, legend,
+    th, td, article, aside, figure, footer, header, hgroup, menu, nav, section {
+        margin: 0;
+        padding: 0;
+        border: 0;
+    }
+
+
+
+    /********************************************
+    Form CSS
+    ********************************************/
+    body {
+        /*background-color:HSL(0, 0%, 96%);;
+        margin-left: 15px;
+        display:none;*/
+        background: url(images/blurred_calcium.jpg) no-repeat center center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+        /*display:none;*/
+    }
+
+    h1 {
+        color:#eee;
+        font-size:5em;
+        text-shadow: 0px 0px 10px black;
+        margin-bottom:20px;
+        margin-top:10px;
+    }
+
+    .gender {
+        margin:0;
+        padding:0;
+        border:none;
+        cursor:pointer;
+        height:200px;
+        width:200px;
+        color:white;
+        font-size:5em;
+        position:relative;
+    }
+
+    #Male {
+        background-color: rgba(94, 129, 255, 1);
+        border-bottom:10px solid blue;
+    }
+
+    #Male:active {
+        position:relative;
+        border-bottom:none;
+        top:10px;
+        height:190px;
+    }
+
+    #Female {
+        background-color: rgba(255, 174, 240, 1);
+        border-bottom:10px solid #FA58AC;
+    }
+    #Female:active {
+        position:relative;
+        border-bottom:none;
+        top:10px;
+        height:190px;
+    }
+
+    #Male:focus, #Female:focus{
+        /*background-color: yellow;*/
+        outline-style:none;
+        /*color:black;*/
+    }
+
+    /*button > img {
+        height:300px;
+        width:200px;
+    }*/
+
+
+    #submit {
+        margin-top:50px;
+        height:100px;
+        width:200px;
+        background-color:#00FF1D;
+        font-size:3em;
+        color:white;
+        border-radius:5px;
+        padding-top:20px;
+    /*        position:absolute;
+        margin-left: auto;
+        margin-right: auto;
+        left:0;
+        right:0;*/
+        text-align: center;
+        margin: 0 auto;
+        margin-top:100px;
+        border-bottom:10px solid #008808;
+        /*border-right:5px solid #008808;*/
+    }
+
+    #submit:active{
+        border:none;
+        height:90px;
+        margin-top:110px;
+    }
+
+    #error {
+        height:200px;
+        width:500px;
+        background-color:red;
+        color:white;
+        font-size:1.5em;
+        padding:10px;
+    }
+
+    #age_form {
+        /*margin-top:15px;
+        margin-bottom: 15px;*/
+        margin: 15px auto 15px auto;
+        text-align:center;
+    }
+
+    @media screen and (max-width: 340px) {
+        #age-select {
+            margin: 15px 0 15px -20px;
+            text-align:center;
+        }
+    }
+
+    #age_form label {
+        font-size:1.3em;
+        margin-bottom:5px;
+    }
+
+    .alert {
+        display:none;
+        text-align:center;
+        margin:0;
+        border:none;
+        border-radius:0;
+        background:#FF1E00;
+        opacity:0.6;
+        color:white;
+    }
+
+    #wrapper {
+        display:none;
+
+    }
+
+    select {
+        font-size:16px;
+        border:0;
+        background-color:white;
+        appearance:none;
+        -moz-appearance:none; /* Firefox */
+        -webkit-appearance:none; /* Safari and Chrome */
+        padding:5px;
+        padding-left:10px;
+        box-shadow: 0 0 20px black;
+    }
+
+
+    select:focus{
+        outline:none;
+        border:0;
+    }
+
+    .center {
+        text-align:center;
+    }
+
+    #gender-label {
+        font-size:1.3em;
+        font-weight:bold;
+    }
+
+    #form {
+        /*border:5px solid #7A8187;*/
+        width:75%;
+        margin:0 auto;
+        padding:20px;
+
+        /*background: #ccc;*/
+
+        /*background: url(images/calcium_cover2.jpg) no-repeat center center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;*/
+    }
+
+    #back {
+        height:40px;
+        width:100px;
+        color:white;
+        text-align:center;
+        margin:0 auto;
+        background-color:#6E6E6E;
+        border-bottom:5px solid #424242;
+        margin-top:15px;
+        padding:2px;
+        padding-top:5px;
+        border-radius:4px;
+        font-size:1.2em;
+    }
+
+    #back:active{
+        border:none;
+        height:25px;
+        margin-top:20px;
+    }
+
+    </style>
+
+    <script>
+    $(document).ready(function() {
+      // Animate in on load.
+      $("#wrapper").fadeIn(500);
+
+      // $("h1").animate({
+      //   left: "50px"
+      // }, 500, 'easeOutBounce');
+    });
+    </script>
+
+</head>
+
+<body>
+<div id="wrapper">
+
+    <div id="age-error" class="alert alert-danger alert-dismissible" role="alert">
+      Please select an age category.
+    </div>
+
+    <div id="gender-error" class="alert alert-danger alert-dismissible" role="alert">
+      Please specify your gender.
+    </div>
+
+    <div class="center">
+        <h1>Let's get started.</h1>
+    </div>
+
+    <div id="form">
+    <!-- <h1>This is a header!</h1> -->
+    <div id = "age_form" class="center">
+        <label for="age-select">Select An Age Category</label></br>
+        <select name="age" id="age-select">
+            <option disabled selected value="default">--please select a category--</option>
+            <option value="baby">Baby (0-6 months old)</option>
+            <option value="infant">Infant (6-12 months old)</option>
+            <option value="toddler">Toddler (1-3 years old)</option>
+            <option value="child">Child (4-8 years old)</option>
+            <option value="teen">Teen (9-18 years old)</option>
+            <option value="adult">Adult (19+ years old)</option>
+            <option value="pregnant-teen">Pregnant Teen (14-18 years old)</option>
+            <option value="pregnant-adult">Pregnant Adult (19+ years old)</option>
+        </select>
+    </div>
+
+    <br />
+
+    <div class="center">
+        <div id="gender-label">Please Select A Gender</div>
+        <div id="gender">
+            <button class="gender" type="button" id="Male">&#9794;</button>
+            <button class="gender" type="button" id="Female">&#9792;</button>
+        </div>
+    </div>
+
+    <div id="submit">Submit</div>
+    <div id="back">Go Back</div>
+    <!-- <div id="error"></div> -->
+
+</div>
+
+</div>
+
+
+</div>
+
+    <script>
+    gender = "None"
+    maleColor = "rgba(94, 129, 255, 1)"
+    femaleColor = "rgba(255, 174, 240, 1)"
+    $(".gender").click(function () {
+        $("#Male").css("background-color", maleColor);
+        $("#Male").css("border-bottom","10px solid blue");
+        $("#Female").css("background-color", femaleColor);
+        $("#Female").css("border-bottom","10px solid #FF22A7");
+        $("#Male").animate({
+            backgroundColor: maleColor
+        }, 0, "easeOutCubic");
+        $("#Female").animate({
+            backgroundColor: femaleColor
+        }, 0, "easeOutCubic");
+        $(this).animate({
+            backgroundColor: "#3AFF09",
+        }, 0, "easeOutCubic");
+        $(this).css("border-bottom","10px solid green");
+        gender = $(this).attr("id");
+        $("#gender").children().removeClass("selected");
+        $(this).addClass("selected");
+    });
+
+    $(".alert").click(function() {
+        $(this).fadeOut();
+    });
+
+    $("#back").click(function() {
+        $("#wrapper").fadeOut(500);
+        setTimeout(function(){window.location="index.html";});
+        //window.location = "home1.html";
+    });
+
+    var RDA_table = {
+        "default":undefined,
+        "baby":200,
+        "infant":260,
+        "toddler":700,
+        "child":1000,
+        "teen":1300,
+        "adult":1000,
+        "pregnant-teen":1300,
+        "pregnant-adult":1000
+    };
+
+    $("#submit").click(function() {
+        var age_category = $("#age-select").find(":selected").attr("value");
+        var RDA = RDA_table[age_category];
+        sendData(RDA, gender);
+    });
+
+    function sendData(RDA, gender)
+    {
+    // Initialize packed or we get the word 'undefined'
+    if (RDA === undefined || gender === "None") {
+        $("#age-error").hide();
+        $("#gender-error").hide();
+        error_msg = "";
+        if (RDA === undefined) {
+            // error_msg += "<p>Please select an age category</p>";
+            $("#age-error").fadeIn();
+        }
+
+        if (gender === "None") {
+            $("#gender-error").fadeIn();
+            // error_msg += "<p>Please select a gender</p>";
+        }
+        // $("#error").html(error_msg);
+        return;
+    }
+    var packed = RDA + "," + gender;
+    window.location = "pick.html?" + packed;
+    }
+    </script>
+</div>
+</body>
+</html>
+
