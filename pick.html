@@ -24,7 +24,7 @@
     <script type="text/javascript" src="js/jquery.min.js"></script>
     <script type="text/javascript" src="js/jquery-ui.min.js"></script>
 
-    <script src="script/jquery.easing.min.js"></script>
+    <script src="js/jquery.easing.min.js"></script>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -34,7 +34,7 @@
     <style type="text/css">
       h1 {
         position:relative;
-        left:-50px;
+        /*left:-50px;*/
       }
 
       body {
@@ -68,7 +68,7 @@
       .food {
         position:relative;
         margin:10px;
-        top:-100px;
+        top:-50px;
       }
 
       .food div {
@@ -88,27 +88,47 @@
         display:none;
       }
 
-      #submit {
-        height:100px;
-        width:200px;
-        background-color:blue;
-        font-size:5em;
-        color:white;
+
+      #main-content {
+        margin:0px auto;
       }
+
+      #foods {
+        float:left;
+      }
+
+      #buttons {
+        float:left;
+        position:relative;
+        left:50px;
+      }
+
       #reset {
-        height:100px;
+        height:75px;
         width:200px;
         background-color:red;
         font-size:3em;
         color:white;
+        border-radius:10px;
+        padding-top:20px;
+        padding-left:25px;
       }
+
       #send {
+        margin-top:50px;
         height:100px;
         width:200px;
         background-color:green;
         font-size:3em;
         color:white;
+        border-radius:5px;
+        padding-top:20px;
+        padding-left:45px;
       }
+
+      /*#main-content #buttons {
+        /**/
+      }*/
     </style>
     <script type="text/javascript">
 
@@ -117,7 +137,7 @@
       $("body").fadeIn(500);
       $('.food img').show();
       $('.food div').show();
-      $('.food').animate({ top: 0, display: 'inline' }, 500, 'easeOutBounce');
+      $('.food').animate({ top: 0, display: 'inline' }, 600, 'easeOutBounce');
 
       // $("h1").animate({
       //   left: "50px"
@@ -136,89 +156,86 @@
       </div>
     </div>
 
-    <div class="container">
+    <div class="main-content container">
       <div id="foods">
-      <div class="row">
-        <div class="food">
-          <img id="yogurt" src="images/yogurt.png" alt="images/yogurt" />
-          <div>0</div>
-        </div>
-        <div class="food">
-          <img id="milk" src="images/milk.png" alt="milk" />
-          <div>0</div>
-        </div>
-        <div class="food">
-          <img id="cheese" src="images/cheese.png" alt="cheese" />
-          <div>0</div>
+        <div class="row">
+          <div class="food">
+            <img id="yogurt" src="images/yogurt.png" alt="images/yogurt" />
+            <div>0</div>
+          </div>
+          <div class="food">
+            <img id="milk" src="images/milk.png" alt="milk" />
+            <div>0</div>
+          </div>
+          <div class="food">
+            <img id="cheese" src="images/cheese.png" alt="cheese" />
+            <div>0</div>
+          </div>
         </div>
 
-      </div>
+        <div class = "row">
+          <div class="food">
+            <img id="ice_cream" src="images/ice_cream.png" alt="ice_cream" />
+            <div>0</div>
+          </div>
+          <div class="food">
+            <img id="almond" src="images/almond.png" alt="almond" />
+            <div>0</div>
+          </div>
+          <div class="food">
+            <img id="brocolli" src="images/Broccoli.png" alt="broccoli" />
+            <div>0</div>
+          </div>
+        </div>
 
-      <div class = "row">
-        <div class="food">
-          <img id="ice_cream" src="images/ice_cream.png" alt="ice_cream" />
-          <div>0</div>
+        <div class = "row">
+          <div class="food">
+            <img id="juice" src="images/juice.png" alt="juice" />
+            <div>0</div>
+          </div>
+          <div class="food">
+            <img id="sardines" src="images/sardines.png" alt="sardines" />
+            <div>0</div>
+          </div>
+          <div class="food">
+            <img id="pizza" src="images/pizza.png" alt="pizza" />
+            <div>0</div>
+          </div>
         </div>
-        <div class="food">
-          <img id="almond" src="images/almond.png" alt="almond" />
-          <div>0</div>
-        </div>
-        <div class="food">
-          <img id="brocolli" src="images/Broccoli.png" alt="broccoli" />
-          <div>0</div>
-        </div>
-      </div>
 
+        <div class = "row">
+          <div class="food">
+            <img id="cabbage" src="images/cabbage.png" alt="juice" />
+            <div>0</div>
+          </div>
+          <div class="food">
+            <img id="enchilada" src="images/enchilada.png" alt="sardines" />
+            <div>0</div>
+          </div>
+          <div class="food">
+            <img id="green_beans" src="images/green_beans.png" alt="pizza" />
+            <div>0</div>
+          </div>
+        </div>
 
-      <div class = "row">
-        <div class="food">
-          <img id="juice" src="images/juice.png" alt="juice" />
-          <div>0</div>
-        </div>
-        <div class="food">
-          <img id="sardines" src="images/sardines.png" alt="sardines" />
-          <div>0</div>
-        </div>
-        <div class="food">
-          <img id="pizza" src="images/pizza.png" alt="pizza" />
-          <div>0</div>
-        </div>
-      </div>
-
-      <div class = "row">
-        <div class="food">
-          <img id="cabbage" src="images/cabbage.png" alt="juice" />
-          <div>0</div>
-        </div>
-        <div class="food">
-          <img id="enchilada" src="images/enchilada.png" alt="sardines" />
-          <div>0</div>
-        </div>
-        <div class="food">
-          <img id="green_beans" src="images/green_beans.png" alt="pizza" />
-          <div>0</div>
-        </div>
-      </div>
-
-      <div class = "row">
-        <div class="food">
-          <img id="other" src="images/other.png" alt="juice" />
-          <div>0</div>
+        <div class = "row">
+          <div class="food">
+            <img id="other" src="images/other.png" alt="juice" />
+            <div>0</div>
+          </div>
         </div>
       </div>
 
       <!-- <div id="submit">0</div> -->
-      <div id="reset">RESET</div>
+      <div id="buttons">
+        <div id="reset">Refresh</div>
 
-      <div id="send">Send</div>
+        <div id="send">Send</div>
+      </div>
 
-
+</div> <!-- Container -->
       <!-- <div class="drop-zone">
         </div> -->
-
-
-
-    </div> <!-- /container -->
 
     <script>
     // receive data from index.html
@@ -249,11 +266,14 @@
     };
 
     $("#reset").click(function() {
+      // $(".food").hide();
+      $(".food").fadeOut(50);
       items = $(".food div");
       for (var i=0; i < items.length; i++) {
         $(items[i]).html(0);
       }
-      $("#submit").html(0);
+      // $("#submit").html(0);
+      $(".food").fadeIn(200);
     });
 
     $("#send").click(function() {
