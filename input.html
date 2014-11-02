@@ -237,7 +237,7 @@
 
     #back:active{
         border:none;
-        height:25px;
+        height:35px;
         margin-top:20px;
     }
 
@@ -277,12 +277,14 @@
         <label for="age-select">Select An Age Category</label></br>
         <select name="age" id="age-select">
             <option disabled selected value="default">--please select a category--</option>
-            <option value="baby">Baby (0-6 months old)</option>
-            <option value="infant">Infant (6-12 months old)</option>
+            <!-- <option value="baby">Baby (0-6 months old)</option>
+            <option value="infant">Infant (6-12 months old)</option> -->
             <option value="toddler">Toddler (1-3 years old)</option>
             <option value="child">Child (4-8 years old)</option>
             <option value="teen">Teen (9-18 years old)</option>
-            <option value="adult">Adult (19+ years old)</option>
+            <option value="young-adult">Young Adult (19-50 years old)</option>
+            <option value="adult">Adult (51-70 years old)</option>
+            <option value="senior">Senior (71+ years old)</option>
             <option value="pregnant-teen">Pregnant Teen (14-18 years old)</option>
             <option value="pregnant-adult">Pregnant Adult (19+ years old)</option>
         </select>
@@ -343,14 +345,17 @@
         //window.location = "home1.html";
     });
 
+
+        // "baby":200,
+        // "infant":260,
     var RDA_table = {
         "default":undefined,
-        "baby":200,
-        "infant":260,
         "toddler":700,
         "child":1000,
         "teen":1300,
+        "young-adult":1000,
         "adult":1000,
+        "senior":1200,
         "pregnant-teen":1300,
         "pregnant-adult":1000
     };
@@ -358,6 +363,9 @@
     $("#submit").click(function() {
         var age_category = $("#age-select").find(":selected").attr("value");
         var RDA = RDA_table[age_category];
+        if (age_category === "adult" && gender==="Female") {
+            RDA += 200;
+        }
         sendData(RDA, gender);
     });
 
@@ -380,7 +388,7 @@
         // $("#error").html(error_msg);
         return;
     }
-    var packed = RDA + "," + gender;
+    var packed = RDA;
     window.location = "pick.html?" + packed;
     }
     </script>

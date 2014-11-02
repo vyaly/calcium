@@ -235,7 +235,7 @@
 
       #back:active{
           border:none;
-          height:25px;
+          height:35px;
           margin-top:20px;
       }
 
@@ -366,7 +366,6 @@
     }
     var data = query.split(',');
     var RDD = data[0];
-    var gender = data[1];
 
     //###############################
     $(".food").click(function() {
@@ -375,11 +374,30 @@
       $(this).find("img").css("background-color", "#830F00");
     });
 
-    function totalServings() {
+    var food_table = {
+      "yogurt":350,
+      "milk":250,
+      "cheese":150,
+      "ice_cream":80,
+      "almond":75,
+      "broccoli":20,
+      "juice":180,
+      "sardines":325,
+      "pizza":300,
+      "cabbage":30,
+      "enchilada":225,
+      "green_beans":50,
+      "other":300
+    };
+
+    function totalCalcium() {
       items = $(".food div");
+      foods = $(".food img");
       total = 0;
       for (var i=0; i < items.length; i++) {
-        total += parseInt($(items[i]).html());
+        food = $(foods[i]).attr("id");
+        amt = parseInt($(items[i]).html());
+        total += food_table[food] * amt;
       }
       return total
     };
@@ -409,7 +427,7 @@
     function sendData()
     {
       // Initialize packed or we get the word 'undefined'
-      var packed = totalServings() + "," + RDD + "," + gender;
+      var packed = totalCalcium() + "," + RDD;
       window.location = "result.html?" + packed;
     }
     // $(function() {
