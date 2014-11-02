@@ -8,7 +8,7 @@
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
 
-    <title>Grid Template for Bootstrap</title>
+    <title>Pick Your Foods</title>
 
     <!-- Bootstrap core CSS -->
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -24,12 +24,23 @@
     <script type="text/javascript" src="js/jquery.min.js"></script>
     <script type="text/javascript" src="js/jquery-ui.min.js"></script>
 
+    <script src="script/jquery.easing.min.js"></script>
+
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
     <style type="text/css">
+      h1 {
+        position:relative;
+        left:-50px;
+      }
+
+      body {
+        display:none;
+      }
+
       .food img{
         height:100px;
         width:100px;
@@ -37,6 +48,7 @@
         padding:5px;
         background-color:RGBA(219, 219, 219, 1);
         z-index:-1;
+        display:none;
       }
 
       .row div {
@@ -56,6 +68,7 @@
       .food {
         position:relative;
         margin:10px;
+        top:-100px;
       }
 
       .food div {
@@ -72,6 +85,7 @@
         padding-top:5px;
         padding-left:10px;
         color:white;
+        display:none;
       }
 
       #submit {
@@ -96,18 +110,34 @@
         color:white;
       }
     </style>
+    <script type="text/javascript">
 
+    $(document).ready(function() {
+      // Animate in on load.
+      $("body").fadeIn(500);
+      $('.food img').show();
+      $('.food div').show();
+      $('.food').animate({ top: 0, display: 'inline' }, 500, 'easeOutBounce');
+
+      // $("h1").animate({
+      //   left: "50px"
+      // }, 500, 'easeOutBounce');
+    });
+
+
+    </script>
   </head>
 
   <body>
     <div class="container">
-
       <div class="page-header">
-        <h1>Bootstrap grid examples</h1>
-        <p class="lead">Basic grid layouts to get you familiar with building within the Bootstrap grid system.</p>
+        <h1>Now select your foods.</h1>
+        <p class="lead">Which calcium-rich foods have you eaten today?</p>
       </div>
+    </div>
 
-
+    <div class="container">
+      <div id="foods">
       <div class="row">
         <div class="food">
           <img id="yogurt" src="images/yogurt.png" alt="images/yogurt" />
@@ -177,7 +207,7 @@
         </div>
       </div>
 
-      <div id="submit">0</div>
+      <!-- <div id="submit">0</div> -->
       <div id="reset">RESET</div>
 
       <div id="send">Send</div>
@@ -199,7 +229,8 @@
       query = query.substring(1);
     }
     var data = query.split(',');
-    $("h1").html(data);
+    var RDD = data[0];
+    var gender = data[1];
 
     //###############################
 
@@ -208,15 +239,14 @@
       $(this).find("div").html(num);
     });
 
-    $("#submit").click(function() {
+    function totalServings() {
       items = $(".food div");
       total = 0;
       for (var i=0; i < items.length; i++) {
         total += parseInt($(items[i]).html());
       }
-      $("#submit").html(total);
-
-    });
+      return total
+    };
 
     $("#reset").click(function() {
       items = $(".food div");
@@ -224,7 +254,6 @@
         $(items[i]).html(0);
       }
       $("#submit").html(0);
-
     });
 
     $("#send").click(function() {
@@ -234,14 +263,7 @@
     function sendData()
     {
       // Initialize packed or we get the word 'undefined'
-      var packed = "";
-      packed += $("#submit").html();
-      // for (i = 0; (i < data.length); i++) {
-      //   if (i > 0) {
-      //     packed += ",";
-      //   }
-      //   packed += escape(data[i]);
-      // }
+      var packed = totalServings() + "," + RDD + "," + gender;
       window.location = "result.html?" + packed;
     }
     // $(function() {
@@ -252,6 +274,7 @@
     //     }
     //   });
     // });
+
     </script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>

@@ -90,7 +90,22 @@
         color:white;
     }
 
+    #error {
+        height:200px;
+        width:500px;
+        background-color:red;
+        color:white;
+        font-size:1.5em;
+        padding:10px;
+    }
+
+    .alert {
+        display:none;
+    }
+
     </style>
+
+
 </head>
 
 <body>
@@ -122,7 +137,15 @@
     </form>
 
     <div id="send"></div>
-    <div id="error"></div>
+    <!-- <div id="error"></div> -->
+
+    <div id="age-error" class="alert alert-danger alert-dismissible" role="alert">
+      <strong>Warning!</strong> Better check yourself, you're not looking too good.
+    </div>
+
+    <div id="gender-error" class="alert alert-danger alert-dismissible" role="alert">
+      <strong>Warning!</strong> Better check yourself, you're not looking too good.
+    </div>
 
     <script>
     gender = "None"
@@ -137,6 +160,10 @@
         gender = $(this).attr("id");
         $("#gender").children().removeClass("selected");
         $(this).addClass("selected");
+    });
+
+    $(".alert").click(function() {
+        $(this).fadeOut();
     });
 
     var RDA_table = {
@@ -159,19 +186,23 @@
 
     function sendData(RDA, gender)
     {
-      // Initialize packed or we get the word 'undefined'
-      if (RDA === undefined) {
-        alert("Please select an age category");
-        return;
-      }
+    // Initialize packed or we get the word 'undefined'
+    if (RDA === undefined || gender === "None") {
+        error_msg = "";
+        if (RDA === undefined) {
+            // error_msg += "<p>Please select an age category</p>";
+            $("#age-error").show();
+        }
 
-      if (gender === "None") {
-        alert("Please select a gender")
+        if (gender === "None") {
+            $("#gender-error").show();
+            // error_msg += "<p>Please select a gender</p>";
+        }
+        // $("#error").html(error_msg);
         return;
-      }
-      var packed = "";
-      packed += RDA + "," + gender;
-      window.location = "pick.html?" + packed;
+    }
+    var packed = RDA + "," + gender;
+    window.location = "pick.html?" + packed;
     }
     </script>
 </div>

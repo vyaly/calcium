@@ -31,7 +31,7 @@
     <![endif]-->
     <style type="text/css">
     #result {
-      height:100px;
+      height:300px;
       width:500px;
       font-size:2em;
       background-color:green;
@@ -45,7 +45,7 @@
   <body>
     <div class="container">
 
-      <div id="result">This is the result</div>
+      <div id="result"></div>
 
 
       <!-- <div class="drop-zone">
@@ -55,18 +55,22 @@
 
     </div> <!-- /container -->
 
+
     <script>
     var query = window.location.search;
-    // Skip the leading ?, which should always be there,
-    // but be careful anyway
     if (query.substring(0, 1) == '?') {
       query = query.substring(1);
     }
-    // var data = query.split(',');
-    // for (i = 0; (i < data.length); i++) {
-    //   data[i] = unescape(data[i]);
-    // }
-    $("#result").html(query);
+    var data = query.split(',');
+    var servings = data[0];
+    var total_calcium = servings * 300;
+    var difference = data[1] - total_calcium;
+    var result_html = "" +
+        "servings: " + servings + "\n" +
+        "total calcium: " + total_calcium + "\n" +
+        "recommended: " + data[1] + "\n" +
+        "difference: " + difference;
+    $("#result").html(result_html);
     </script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
